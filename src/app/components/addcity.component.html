@@ -1,0 +1,39 @@
+<form [formGroup]="form" (ngSubmit)="addCity()">
+    <table>
+        <tr>
+            <td>
+                Country:
+            </td>
+            <td>
+                <input formControlName="country" type="text">
+            </td>
+        </tr>
+        <tr>
+            <td>
+                City:
+            </td>
+            <td>
+                <input formControlName="city" type="text">
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Image Url:
+            </td>
+            <td>
+                <input formControlName="imageUrl" type="text">
+            </td>
+        </tr>
+
+        <tr>
+            <td></td>
+            <td>
+                <button type="submit">Add</button>
+            </td>
+        </tr>
+
+    </table>
+
+</form>
+
+<app-listcity [newCity]="newCity"></app-listcity>
