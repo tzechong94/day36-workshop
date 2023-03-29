@@ -1,6 +1,7 @@
 export interface City {
     country: string,
     city: string,
-    imageUrl: string
+    imageUrl: string,
+    id?: number
 }
 

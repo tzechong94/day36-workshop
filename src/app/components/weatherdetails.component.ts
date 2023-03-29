@@ -11,6 +11,7 @@ import { WeatherService } from '../services/weather.service';
   styleUrls: ['./weatherdetails.component.css']
 })
 export class WeatherdetailsComponent implements OnInit, OnDestroy {
+
   OPENWEATHER_API_KEY = environment.openWeatherApiKey
 
   private city: string = "Singapore"

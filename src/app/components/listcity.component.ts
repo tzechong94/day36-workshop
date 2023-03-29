@@ -1,4 +1,6 @@
 import { Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
+import { liveQuery } from 'dexie';
+import { db } from '../db';
 import { City } from '../model/city';
 import { WeatherService } from '../services/weather.service';
 
@@ -15,8 +17,10 @@ export class ListcityComponent implements OnInit, OnChanges {
   @Input()
   newCity!: City
 
+  cityList$ = liveQuery(()=> db.cityList.toArray())
+
   ngOnInit(): void {
-      this.cities = this.weatherSvc.countries
+      // this.cities = this.weatherSvc.countries
   }
 
   ngOnChanges(changes: SimpleChanges): void {

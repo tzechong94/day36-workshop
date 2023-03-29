@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Subject } from 'rxjs';
+import { db } from '../db';
 import { City } from '../model/city';
 
 @Component({
@@ -30,7 +31,16 @@ export class AddcityComponent implements OnInit{
     )
   }
 
-  addCity() {
-    this.newCity = this.form.value as City
+  // addCity() {
+  //   this.newCity = this.form.value as City
+  // }
+
+  async addCity() {
+    const cityData = this.form.value as City
+    await db.cityList.add({
+      country: cityData.country,
+      city: cityData.city,
+      imageUrl: cityData.imageUrl
+    })
   }
 }
